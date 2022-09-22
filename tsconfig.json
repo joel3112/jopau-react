@@ -15,6 +15,9 @@
     "allowJs": true,
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@japf-react/utils/*": ["packages/utils/src/*"]
+    },
     "types": ["node", "react", "jest"]
   },
   "exclude": ["node_modules", "packages/**/*.test.ts"]
