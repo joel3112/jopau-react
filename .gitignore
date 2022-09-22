@@ -18,8 +18,8 @@ node_modules/
 /packages/*/dist/
 
 # publish
-.npmrc
-.npmignore
+/packages/*/.npmrc
+/packages/*/.npmignore
 
 # misc
 .DS_Store

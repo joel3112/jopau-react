@@ -1,5 +1,5 @@
 {
-  "name": "@japf-react/root",
+  "name": "@jopau-react/root",
   "private": true,
   "scripts": {
     "build": "lerna run build --stream",
@@ -7,7 +7,7 @@
     "test": "lerna run test --stream",
     "type-check": "tsc --pretty --noEmit",
     "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
+    "clean": "lerna clean && rm -rf yarn.lock",
     "lint": "eslint .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc.json"
   },
