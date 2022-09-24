@@ -1,9 +1,11 @@
 {
   "name": "@jopau-react/utils",
-  "version": "1.1.12",
+  "version": "1.1.16",
   "license": "MIT",
   "repository": "jopau-react",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
   "scripts": {
     "test": "jest --config ../../jest.config.js",
     "build": "rm -rf dist && tsc -p tsconfig.build.json"

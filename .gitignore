@@ -16,6 +16,7 @@ node_modules/
 # production
 /dist
 /packages/*/dist/
+/packages/*/*.tgz
 
 # publish
 /.npmrc
