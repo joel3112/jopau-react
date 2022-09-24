@@ -1,4 +1,4 @@
-name: @jopau-react/utils pipeline
+name: jopau-react/utils pipeline
 
 on:
   push:
