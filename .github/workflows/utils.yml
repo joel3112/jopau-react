@@ -68,7 +68,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run:
+        run: |
           cd packages/utils
           yarn run build
 
@@ -87,7 +87,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Test
-        run:
+        run: |
           cd packages/utils
           yarn test
 
@@ -99,7 +99,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Publish package to NPM 📦
-        run:
+        run: |
           cd packages/utils
           npm publish ./dist --access public
         env:
