@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-yarn install
+yarn install @jopau-react/utils
 ```
 
 ## Usage
@@ -18,12 +18,6 @@ yarn install
 ```javascript
 import { isBreakpointBetween } from '@jopau-react/utils/dist/breakpoint';
 import { yearsFromNow } from '@jopau-react/utils/dist/date';
-```
-
-## Run tests
-
-```sh
-yarn run test
 ```
 
 ## Author
