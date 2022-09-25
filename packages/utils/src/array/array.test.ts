@@ -1,16 +1,4 @@
-import './array';
-import {
-  compact,
-  first,
-  nth,
-  last,
-  multiply,
-  remove,
-  split,
-  uniq,
-  splitByCriteria,
-  range
-} from './array';
+import { compact, first, nth, last, multiply, remove, split, uniq, splitByCriteria } from './array';
 
 describe('Array helper methods', () => {
   describe('first', () => {
@@ -90,24 +78,6 @@ describe('Array helper methods', () => {
 
     test('returns an empty array in empty array', () => {
       expect(compact([])).toStrictEqual([]);
-    });
-  });
-
-  describe('range', () => {
-    test('returns array range', () => {
-      expect(range(5)).toStrictEqual([0, 1, 2, 3, 4]);
-    });
-
-    test('returns array range with stop', () => {
-      expect(range(1, 5)).toStrictEqual([1, 2, 3, 4]);
-    });
-
-    test('returns array range with step', () => {
-      expect(range(0, 20, 5)).toStrictEqual([0, 5, 10, 15]);
-    });
-
-    test('returns empty array range', () => {
-      expect(range(0)).toStrictEqual([]);
     });
   });
 

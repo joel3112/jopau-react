@@ -30,10 +30,6 @@ export const compact = <T>(array: TArray<T>): TArray<T> => {
   return _.compact<T>(array);
 };
 
-export const range = (startOrStop: number, stop?: number, step?: number): TArray<number> => {
-  return _.range(startOrStop, stop, step);
-};
-
 export const multiply = <T>(array: TArray<T>, size: number): TArray<T> => {
   return Array(size)
     .fill('')

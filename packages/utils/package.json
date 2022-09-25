@@ -1,6 +1,6 @@
 {
   "name": "@jopau-react/utils",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "MIT",
   "repository": "jopau-react",
   "type": "module",
@@ -8,10 +8,7 @@
   "module": "index.js",
   "scripts": {
     "test": "jest --config ../../jest.config.js",
-    "build": "rm -rf dist && tsc -p tsconfig.build.json",
-    "prepublish": "cp package.json dist && cp README.md dist",
-    "publish": "npm publish ./dist --access public",
-    "postpublish": "rm -rf dist/package.json dist/README.md"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "lodash": "4.17.21",

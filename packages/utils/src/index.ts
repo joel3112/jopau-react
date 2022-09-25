@@ -8,5 +8,6 @@ export * from './array';
 export * from './breakpoint';
 export * from './collection';
 export * from './date';
+export * from './function';
 export * from './object';
 export * from './string';

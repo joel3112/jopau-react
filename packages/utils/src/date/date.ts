@@ -1,6 +1,7 @@
 import { DateTime, Duration, DurationObjectUnits } from 'luxon';
 
 export type TDate = Date | string | number | null | undefined;
+export type TDateUnits = DurationObjectUnits;
 
 export const dateInstance = (date: TDate): Date | null => {
   return date ? new Date(date) : null;
@@ -29,7 +30,7 @@ export const isValidateDate = (date: TDate): boolean => {
   return DateTime.fromISO(dateInstanceString(date)).isValid;
 };
 
-export const durationFromMinutes = (minutes: number): DurationObjectUnits => {
+export const durationFromMinutes = (minutes: number): TDateUnits => {
   return Duration.fromObject({ minutes }).shiftTo('hours', 'minutes').toObject();
 };
 
