@@ -16,8 +16,8 @@ yarn install @jopau-react/utils
 ## Usage
 
 ```javascript
-import { isBreakpointBetween } from '@jopau-react/utils/dist/breakpoint';
-import { yearsFromNow } from '@jopau-react/utils/dist/date';
+import { isBreakpointBetween } from '@jopau-react/utils/breakpoint';
+import { yearsFromNow } from '@jopau-react/utils/date';
 ```
 
 ## Author

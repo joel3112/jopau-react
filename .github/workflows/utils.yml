@@ -113,7 +113,14 @@ jobs:
         run: |
           cd packages/utils
           yarn run build
+      - name: Release
+        uses: justincy/github-action-npm-release@2.0.2
+        id: release
+      - name: Print release output
+        if: ${{ steps.release.outputs.released == 'true' }}
+        run: echo Release ID ${{ steps.release.outputs.release_id }}
       - name: Publish package to NPM 📦
+        if: steps.release.outputs.released == 'true'
         run: |
           cd packages/utils
           cp package.json ./dist && cp README.md ./dist
