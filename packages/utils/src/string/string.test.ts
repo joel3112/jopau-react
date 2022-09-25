@@ -1,33 +1,43 @@
-import './string';
+import {
+  isUrl,
+  removeSpecialCharacters,
+  toBackgroundImageUrl,
+  toCamelCase,
+  toCapitalize,
+  toKebabCase,
+  truncate
+} from './string';
 
 describe('String helper methods', () => {
   describe('truncate', () => {
     test('returns a shorter string with limit length', () => {
-      expect('Hola mundo'.truncate(7)).toBe('Hola...');
+      expect(truncate('Hola mundo', 7)).toBe('Hola...');
     });
+
     test('returns a longer string with higher limit length', () => {
-      expect('Hola mundo'.truncate(25)).toBe('Hola mundo');
+      expect(truncate('Hola mundo', 25)).toBe('Hola mundo');
     });
+
     test('returns a shorter string with negative limit length', () => {
-      expect('Hola mundo'.truncate(-5)).toBe('...');
+      expect(truncate('Hola mundo', -5)).toBe('...');
     });
   });
 
   describe('toCamelCase', () => {
     test('returns a string with format camel case', () => {
-      expect('test component'.toCamelCase()).toBe('testComponent');
+      expect(toCamelCase('test component')).toBe('testComponent');
     });
   });
 
   describe('toKebabCase', () => {
     test('returns a string with format kebab case', () => {
-      expect('test component'.toKebabCase()).toBe('test-component');
+      expect(toKebabCase('test component')).toBe('test-component');
     });
   });
 
   describe('toCapitalize', () => {
     test('returns a string with capitalize format', () => {
-      expect('test'.toCapitalize()).toBe('Test');
+      expect(toCapitalize('test')).toBe('Test');
     });
   });
 
@@ -39,7 +49,7 @@ describe('String helper methods', () => {
       { text: 'äßç', removed: 'another special characters', result: 'aessc' }
     ].forEach(({ text, removed, result }) => {
       test(`returns a string without "${removed}" in word ${text}`, () => {
-        expect(text.removeSpecialCharacters()).toBe(result);
+        expect(removeSpecialCharacters(text)).toBe(result);
       });
     });
   });
@@ -50,7 +60,7 @@ describe('String helper methods', () => {
       { text: 'facebook.com', correct: false }
     ].forEach(({ text, correct }) => {
       test(`returns ${correct} in word with ${correct ? 'correct' : 'incorrect'} format`, () => {
-        expect(text.isUrl()).toBe(correct);
+        expect(isUrl(text)).toBe(correct);
       });
     });
   });
@@ -58,13 +68,15 @@ describe('String helper methods', () => {
   describe('toBackgroundImageUrl', () => {
     test('returns a background image format in word with correct format url', () => {
       const url = 'http://www.images.com/image1.png';
-      expect(url.toBackgroundImageUrl()).toBe(`url(${url})`);
+      expect(toBackgroundImageUrl(url)).toBe(`url(${url})`);
     });
+
     test('returns a empty string in word with incorrect format url', () => {
-      expect('facebook.com'.toBackgroundImageUrl()).toBe('');
+      expect(toBackgroundImageUrl('facebook.com')).toBe('');
     });
+
     test('returns a empty string in empty word', () => {
-      expect(''.toBackgroundImageUrl()).toBe('');
+      expect(toBackgroundImageUrl('')).toBe('');
     });
   });
 });

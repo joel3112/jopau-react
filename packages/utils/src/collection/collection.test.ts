@@ -1,53 +1,134 @@
-import { Collection, getPropValue, isEmpty, mapValuesBy } from './collection';
+import { isEmpty, sortBy, TCollection } from './collection';
 
 describe('Collection helper methods', () => {
-  const example: Collection = {
-    a: { a1: 'uno', a2: 'dos' },
-    b: [1, 2, 3, [4, 5]],
-    c: { c1: { c11: 'tres', c12: 'cuatro' } }
-  };
-
   describe('isEmpty', () => {
-    test('returns true in empty collection', () => {
+    test('returns true in empty array', () => {
+      expect(isEmpty([])).toBeTruthy();
+    });
+
+    test('returns true in empty object', () => {
       expect(isEmpty({})).toBeTruthy();
     });
-    test('returns false in not empty collection', () => {
-      expect(isEmpty(example)).toBeFalsy();
+
+    test('returns false in not empty object', () => {
+      expect(isEmpty<number>({ a: 1, b: 3 })).toBeFalsy();
+    });
+
+    test('returns true in array with empty values', () => {
+      expect(isEmpty([undefined, '', null])).toBeTruthy();
+    });
+
+    test('returns false in array with not empty values', () => {
+      expect(isEmpty([1, undefined, 2, '', 3])).toBeFalsy();
     });
   });
 
-  describe('getPropValue', () => {
-    [
-      { path: '', result: undefined },
-      { path: 'a.a1', result: 'uno' },
-      { path: 'b.[3].[0]', result: 4 },
-      { path: 'c.c1.c12', result: 'cuatro' }
-    ].forEach(({ path, result }) => {
-      test(`returns "${result}" value in collection with path "${path}"`, () => {
-        expect(getPropValue(example, path)).toBe(result);
-      });
-    });
-  });
-
-  describe('mapValues', () => {
-    const example: Collection = {
-      a: { name: 'a', value: 1 },
-      b: { name: 'b', value: 2 }
+  describe('sortBy', () => {
+    const collectionArray: TCollection<{ name: string }> = [
+      {
+        name: 'b'
+      },
+      {
+        name: 'c'
+      },
+      {
+        name: 'a'
+      }
+    ];
+    const collectionObject: TCollection<{ age: number }> = {
+      b: {
+        age: 10
+      },
+      c: {
+        age: 15
+      },
+      a: {
+        age: 1
+      }
     };
-
-    test('returns map values in collection with iteratee', () => {
-      [
-        { iteratee: (x: { name: string }) => x.name, result: { a: 'a', b: 'b' } },
-        {
-          iteratee: (x: { value: number }) => x.value * 2,
-          result: {
-            a: 2,
-            b: 4
-          }
+    const collectionComplex: TCollection<{ id: string; detail: { age: number } }> = [
+      {
+        id: 'b',
+        detail: {
+          age: 10
         }
-      ].forEach(({ iteratee, result }) => {
-        expect(mapValuesBy(example, iteratee as (value: unknown) => unknown)).toEqual(result);
-      });
+      },
+      {
+        id: 'c',
+        detail: {
+          age: 15
+        }
+      },
+      {
+        id: 'a',
+        detail: {
+          age: 1
+        }
+      }
+    ];
+
+    test('returns array object sorted descending from array', () => {
+      expect(sortBy(collectionArray, 'name', 'desc')).toStrictEqual([
+        {
+          name: 'c'
+        },
+        {
+          name: 'b'
+        },
+        {
+          name: 'a'
+        }
+      ]);
+    });
+
+    test('returns array object sorted ascending from array', () => {
+      expect(sortBy(collectionArray, 'name', 'asc')).toStrictEqual([
+        {
+          name: 'a'
+        },
+        {
+          name: 'b'
+        },
+        {
+          name: 'c'
+        }
+      ]);
+    });
+
+    test('returns array object sorted descending from object', () => {
+      expect(sortBy(collectionObject, 'age', 'desc')).toStrictEqual([
+        {
+          age: 15
+        },
+        {
+          age: 10
+        },
+        {
+          age: 1
+        }
+      ]);
+    });
+
+    test('returns array object sorted ascending from object', () => {
+      expect(sortBy(collectionObject, 'age', 'asc')).toStrictEqual([
+        {
+          age: 1
+        },
+        {
+          age: 10
+        },
+        {
+          age: 15
+        }
+      ]);
+    });
+
+    test('returns array object sorted ascending from array complex', () => {
+      expect(sortBy(collectionComplex, (a) => a.detail.age, 'asc')).toStrictEqual([
+        { id: 'a', detail: { age: 1 } },
+        { id: 'b', detail: { age: 10 } },
+        { id: 'c', detail: { age: 15 } }
+      ]);
     });
   });
 });

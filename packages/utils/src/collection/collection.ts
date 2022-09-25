@@ -1,22 +1,25 @@
 import * as _ from 'lodash';
+import { TArray, TBasic, TObject } from '../index';
+import { compact } from '../array';
 
-export type Collection<T = unknown> = object & Record<string, T>;
+export type TCollection<T = TBasic> = TArray<T> | TObject<T>;
+export type TCollectionSortOrder = 'asc' | 'desc';
 
-export const getPropValue = <T = Collection, U = unknown>(
-  collection: T,
-  path: string,
-  defaultValue?: U
-): U => {
-  return _.get(collection, path, defaultValue);
+export const isEmpty = <T>(collection: TCollection<T>): boolean => {
+  if (Array.isArray(collection)) {
+    return compact(collection).length === 0;
+  }
+  if (typeof collection === 'object') {
+    return !(collection && Object.keys(collection).length);
+  }
+
+  return _.isEmpty(collection);
 };
 
-export const isEmpty = <T = Collection>(collection: T): boolean => {
-  return !(collection && Object.keys(collection).length);
-};
-
-export const mapValuesBy = <T extends object = Collection, U = Collection>(
-  collection: T,
-  callback: (value: unknown) => unknown
-): U => {
-  return _.mapValues(collection, callback) as U;
+export const sortBy = <T>(
+  collection: TCollection<T>,
+  key: string | Array<string> | ((value: T, index: number, collection: TArray<T>) => TBasic),
+  orders: Array<TCollectionSortOrder> | TCollectionSortOrder = 'asc'
+): TArray<T> | TArray<T[keyof T]> => {
+  return _.orderBy<T>(collection as TArray<T>, key, orders);
 };

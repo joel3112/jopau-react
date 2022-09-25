@@ -118,7 +118,6 @@ jobs:
           cd packages/utils
           cp package.json ./dist && cp README.md ./dist
           npm publish ./dist --access public
-          echo "--> ls dist" && ls dist
           echo "Package published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,23 +1,15 @@
-import { mapValuesBy } from '../collection';
-
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type BreakpointValues = { [key in Breakpoint]: number };
+export type BreakpointRule = 'width' | 'name';
+export type BreakpointRuleValue = Breakpoint | number;
 
-export interface BreakpointRules {
-  name: Breakpoint;
-  width: number;
-}
-
-export type BreakpointRule = keyof BreakpointRules;
-
-export type BreakpointRuleValue = BreakpointRules[keyof BreakpointRules];
+export type BreakpointRules = Record<BreakpointRule, BreakpointRuleValue>;
 
 export type BreakpointsRules = {
   [key in Breakpoint]?: BreakpointRules;
 };
 
-export const BREAKPOINTS: BreakpointsRules = {
+export const DEFAULT_CONFIG: BreakpointsRules = {
   xs: {
     name: 'xs',
     width: 0
@@ -40,21 +32,37 @@ export const BREAKPOINTS: BreakpointsRules = {
   }
 };
 
-const getBreakpointConfig = (key: Breakpoint, breakpointRules: BreakpointsRules = BREAKPOINTS) =>
-  breakpointRules[key] as BreakpointRules;
+export class BreakpointsConfig {
+  rules: BreakpointsRules = {};
+  windowWidth = 0;
 
-export const getBreakpointRuleBy = (
-  key: BreakpointRule,
-  breakpointRules: BreakpointsRules = BREAKPOINTS
-): BreakpointRules | Record<Breakpoint, BreakpointRuleValue> =>
-  mapValuesBy<BreakpointsRules, BreakpointRules>(breakpointRules, (value) =>
-    key ? (value as BreakpointRules)[key] : value
-  );
+  constructor() {
+    this.rules = DEFAULT_CONFIG;
+  }
 
-export const isBreakpointBetween = (width: number, min: Breakpoint, max: Breakpoint): boolean => {
-  return width >= getBreakpointConfig(min).width && width <= getBreakpointConfig(max).width;
-};
+  createBreakpoints(rules?: BreakpointsRules): BreakpointsConfig {
+    this.rules = rules || DEFAULT_CONFIG;
+    this.windowWidth = window.innerWidth;
+    return this;
+  }
 
-export const isBreakpointUp = (width: number, min: Breakpoint): boolean => {
-  return width >= getBreakpointConfig(min).width;
+  between(min: Breakpoint, max: Breakpoint): boolean {
+    return (
+      this.windowWidth >= this._getRuleValue(min, 'width') &&
+      this.windowWidth <= this._getRuleValue(max, 'width')
+    );
+  }
+
+  up(min: Breakpoint): boolean {
+    return this.windowWidth >= this._getRuleValue(min, 'width');
+  }
+
+  private _getRuleValue(key: Breakpoint, rule: BreakpointRule) {
+    return (this.rules[key] as BreakpointRules)[rule];
+  }
+}
+
+const breakpointConfig = new BreakpointsConfig();
+export const { createBreakpoints } = {
+  createBreakpoints: (rules?: BreakpointsRules) => breakpointConfig.createBreakpoints(rules)
 };

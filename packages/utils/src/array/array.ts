@@ -1,76 +1,54 @@
 import * as _ from 'lodash';
+import { TBasic } from '../index';
 
-declare global {
-  interface Array<T> {
-    isEmpty(): boolean;
-    first(): T;
-    last(): T;
-    get(position: number): T;
-    remove(position: number): Array<T>;
-    uniq(): Array<T>;
-    compact(): Array<T>;
-    multiply(size: number): Array<T>;
-    truncate(limit: number): Array<T>;
-    split<U>(criteria?: number | ((value: T, index: number) => U)): Array<Array<T | U>>;
-    sortObjectsBy(key: keyof T, descending?: boolean): Array<T>;
-  }
-}
+export type TArray<T = TBasic> = ArrayLike<T>;
+export type TArrayDouble<T = TBasic> = [Array<T>, Array<T>];
+export type TArrayCriteriaSplit<T = TBasic> = (value: T, index: number) => boolean;
 
-Array.prototype.isEmpty = function () {
-  return _.compact(this).length === 0;
+export const first = <T>(array: TArray<T>): T | undefined => {
+  return _.head(array);
 };
 
-Array.prototype.first = function () {
-  return _.head(this);
+export const last = <T>(array: TArray<T>): T | undefined => {
+  return _.last(array);
 };
 
-Array.prototype.last = function () {
-  return _.last(this);
+export const nth = <T>(array: TArray<T>, position: number): T | undefined => {
+  return _.nth<T>(array, position);
 };
 
-Array.prototype.get = function (position) {
-  return _.nth(this, position);
-};
-
-Array.prototype.remove = function (position) {
-  const [filtered, removed] = this.split(position);
+export const remove = <T>(array: TArray<T>, position: number): TArray<T> => {
+  const [filtered, removed] = split<T>(array, position);
   return [...filtered.slice(0, -1), ...removed];
 };
 
-Array.prototype.uniq = function () {
-  return _.uniq(this);
+export const uniq = <T>(array: TArray<T>): TArray<T> => {
+  return _.uniq<T>(array);
 };
 
-Array.prototype.compact = function () {
-  return _.compact(this);
+export const compact = <T>(array: TArray<T>): TArray<T> => {
+  return _.compact<T>(array);
 };
 
-Array.prototype.multiply = function (size) {
+export const range = (startOrStop: number, stop?: number, step?: number): TArray<number> => {
+  return _.range(startOrStop, stop, step);
+};
+
+export const multiply = <T>(array: TArray<T>, size: number): TArray<T> => {
   return Array(size)
     .fill('')
-    .reduce((acc) => [...acc, ...this], []);
+    .reduce((acc) => [...acc, ...Array.from(array)], []);
 };
 
-Array.prototype.truncate = function (limit) {
-  return this.slice(0, limit);
+export const split = <T>(array: TArray<T>, position: number): TArrayDouble<T> => {
+  const [filtered, removed] = splitByCriteria(array, (value: T, i: number) => i <= position);
+  return [filtered, removed];
 };
 
-Array.prototype.split = function (criteria) {
-  function _split<T>(array: Array<T>, callback: (value: T, index: number) => unknown) {
-    const _array = [...array];
-    return [_.remove(_array, callback), _array];
-  }
-
-  if (typeof criteria == 'function') {
-    return _split(this, criteria);
-  }
-  if (typeof criteria == 'number') {
-    const [filtered, removed] = _split(this, (_: unknown, i: number) => i <= criteria);
-    return [filtered, removed];
-  }
-  return this;
-};
-
-Array.prototype.sortObjectsBy = function (key, descending = false) {
-  return _.orderBy(this, key, descending ? 'desc' : 'asc');
+export const splitByCriteria = <T>(
+  array: TArray<T>,
+  criteria: TArrayCriteriaSplit<T>
+): TArrayDouble<T> => {
+  const _array = [...Array.from(array)];
+  return [_.remove<T>(_array, criteria), _array];
 };
