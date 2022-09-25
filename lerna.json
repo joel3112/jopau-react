@@ -3,5 +3,11 @@
   "useWorkspaces": true,
   "packages": ["packages/*"],
   "version": "independent",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "allowBranch": "main",
+      "message": "chore(release): %s"
+    }
+  }
 }

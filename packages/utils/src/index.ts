@@ -1,8 +1,17 @@
 import { TObject } from './object';
 import { TArray } from './array';
+import { TDate } from './date';
+import { TFunction, TFunctionVoid } from './function';
 
 export type TBasic = string | number | boolean | null | undefined;
-export type TAny = TBasic | TObject<unknown> | TArray<unknown> | unknown;
+export type TAny =
+  | TBasic
+  | TDate
+  | TObject<unknown>
+  | TArray<unknown>
+  | TFunction
+  | TFunctionVoid
+  | unknown;
 
 export * from './array';
 export * from './breakpoint';

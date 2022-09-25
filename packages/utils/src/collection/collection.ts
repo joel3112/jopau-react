@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { TArray, TBasic, TObject } from '../index';
+import { TAny, TArray, TBasic, TObject } from '../index';
 import { compact } from '../array';
 
 export type TCollection<T = TBasic> = TArray<T> | TObject<T>;
@@ -14,6 +14,24 @@ export const isEmpty = <T>(collection: TCollection<T>): boolean => {
   }
 
   return _.isEmpty(collection);
+};
+
+export const size = (collection: TCollection): number => {
+  return _.size(collection);
+};
+
+export const some = <T>(
+  collection: TCollection<T> | null | undefined,
+  predicate: TAny
+): boolean => {
+  return _.some<T>(
+    collection as TArray<T>,
+    predicate as (value: T, index: number, collection: TArray<T>) => boolean
+  );
+};
+
+export const includes = <T>(collection: TCollection<T>, value: TAny, fromIndex = 0): boolean => {
+  return _.includes(collection, value, fromIndex);
 };
 
 export const sortBy = <T>(

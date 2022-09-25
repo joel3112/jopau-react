@@ -40,6 +40,10 @@ export class BreakpointsConfig {
     this.rules = DEFAULT_CONFIG;
   }
 
+  private _getRuleValue(key: Breakpoint, rule: BreakpointRule) {
+    return (this.rules[key] as BreakpointRules)[rule];
+  }
+
   createBreakpoints(rules?: BreakpointsRules): BreakpointsConfig {
     this.rules = rules || DEFAULT_CONFIG;
     this.windowWidth = window.innerWidth;
@@ -55,10 +59,6 @@ export class BreakpointsConfig {
 
   up(min: Breakpoint): boolean {
     return this.windowWidth >= this._getRuleValue(min, 'width');
-  }
-
-  private _getRuleValue(key: Breakpoint, rule: BreakpointRule) {
-    return (this.rules[key] as BreakpointRules)[rule];
   }
 }
 

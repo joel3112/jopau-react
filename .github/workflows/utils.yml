@@ -1,4 +1,4 @@
-name: jopau-react/utils pipeline
+name: jopau-react/utils
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   avoid_reduncy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.9.1
@@ -90,38 +90,3 @@ jobs:
         run: |
           cd packages/utils
           yarn test
-
-  publish:
-    needs: [test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@jopau-react'
-      - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: |
-          cd packages/utils
-          yarn run build
-      - name: Check Package Version
-        uses: PostHog/check-package-version@v2
-        id: cpv
-        with:
-          path: packages/utils
-      - name: Publish package to NPM 📦
-        if: steps.cpv.outputs.is-new-version == 'true'
-        run: |
-          cd packages/utils          
-          cp package.json ./dist && cp README.md ./dist
-          npm publish ./dist --access public
-          echo "Package published successfully 🎉"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,4 +1,4 @@
-import { isEmpty, sortBy, TCollection } from './collection';
+import { includes, isEmpty, size, some, sortBy, TCollection } from './collection';
 
 describe('Collection helper methods', () => {
   describe('isEmpty', () => {
@@ -20,6 +20,48 @@ describe('Collection helper methods', () => {
 
     test('returns false in array with not empty values', () => {
       expect(isEmpty([1, undefined, 2, '', 3])).toBeFalsy();
+    });
+  });
+
+  describe('size', () => {
+    test('returns size in array', () => {
+      expect(size([1, 2, 3])).toBe(3);
+    });
+
+    test('returns size in object', () => {
+      expect(size({ a: 1, b: 2, c: 3 })).toBe(3);
+    });
+  });
+
+  describe('some', () => {
+    test('returns true with boolean predicate', () => {
+      expect(some([null, 0, 'yes', false], Boolean)).toBeTruthy();
+    });
+
+    test('return false with matches predicate', () => {
+      expect(
+        some(
+          [
+            { user: 'barney', active: true },
+            { user: 'fred', active: false }
+          ],
+          { user: 'barney', active: false }
+        )
+      ).toBeFalsy();
+    });
+  });
+
+  describe('includes', () => {
+    test('returns true with value included', () => {
+      expect(includes([1, 2, 3], 1)).toBeTruthy();
+    });
+
+    test('returns false with specific index', () => {
+      expect(includes([1, 2, 3], 1, 2)).toBeFalsy();
+    });
+
+    test('return true with object', () => {
+      expect(includes({ a: 1, b: 2, c: 3 }, 1)).toBeTruthy();
     });
   });
 

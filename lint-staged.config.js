@@ -6,5 +6,5 @@ module.exports = {
     `yarn format ${filenames.join(' ')}`
   ],
 
-  '**/*.(md|json)': (filenames) => `yarn format ${filenames.join(' ')}`
+  '**/*.(md|json|yml)': (filenames) => `yarn format ${filenames.join(' ')}`
 };
