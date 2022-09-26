@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](http://jopau-react/compare/@jopau-react/utils@2.3.0...@jopau-react/utils@3.0.0) (2022-09-26)
+
+- feat(utils)!: add breakpoint config and targetWidth ([aa1bc6a](http://jopau-react/commits/aa1bc6a23ff1f8c391101aeae66de0a81c82c6b5))
+
+### BREAKING CHANGES
+
+- change way to createBreakpoints
+
 # [2.3.0](http://jopau-react/compare/@jopau-react/utils@2.2.0...@jopau-react/utils@2.3.0) (2022-09-25)
 
 ### Features

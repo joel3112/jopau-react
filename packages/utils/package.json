@@ -1,6 +1,6 @@
 {
   "name": "@jopau-react/utils",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "license": "MIT",
   "repository": "jopau-react",
   "type": "module",
@@ -8,7 +8,8 @@
   "module": "index.js",
   "scripts": {
     "test": "jest --config ../../jest.config.js",
-    "build": "rm -rf dist && tsc -p tsconfig.build.json"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "version": "lerna version --conventional-commits --amend"
   },
   "dependencies": {
     "lodash": "4.17.21",

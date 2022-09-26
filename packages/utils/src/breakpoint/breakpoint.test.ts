@@ -1,11 +1,9 @@
 import {
-  BreakpointsConfig,
+  BreakpointsHelper,
   BreakpointsRules,
   createBreakpoints,
   DEFAULT_CONFIG
 } from './breakpoint';
-
-const MOCK_HEIGHT = 1000;
 
 describe('Breakpoint helper methods', () => {
   describe('createBreakpoints', () => {
@@ -25,21 +23,19 @@ describe('Breakpoint helper methods', () => {
         }
       };
 
-      expect(createBreakpoints(CUSTOM_CONFIG).rules).toStrictEqual(CUSTOM_CONFIG);
+      expect(createBreakpoints({ rules: CUSTOM_CONFIG }).rules).toStrictEqual(CUSTOM_CONFIG);
     });
   });
 
   describe('between', () => {
     test('returns true if width is between min and max', () => {
-      window.resizeTo(400, MOCK_HEIGHT);
-      const breakpoints: BreakpointsConfig = createBreakpoints();
+      const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 400 });
 
       expect(breakpoints.between('xs', 'sm')).toBeTruthy();
     });
 
     test('returns false if width is not between min and max', () => {
-      window.resizeTo(1800, MOCK_HEIGHT);
-      const breakpoints: BreakpointsConfig = createBreakpoints();
+      const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 1800 });
 
       expect(breakpoints.between('xs', 'sm')).toBeFalsy();
     });
@@ -47,15 +43,13 @@ describe('Breakpoint helper methods', () => {
 
   describe('isBreakpointUp', () => {
     test('returns true if width is greater than min', () => {
-      window.resizeTo(900, MOCK_HEIGHT);
-      const breakpoints: BreakpointsConfig = createBreakpoints();
+      const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 900 });
 
       expect(breakpoints.up('sm')).toBeTruthy();
     });
 
     test('returns false if width is not greater than min', () => {
-      window.resizeTo(100, MOCK_HEIGHT);
-      const breakpoints: BreakpointsConfig = createBreakpoints();
+      const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 100 });
 
       expect(breakpoints.up('sm')).toBeFalsy();
     });

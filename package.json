@@ -10,7 +10,7 @@
     "clean": "lerna clean && rm -rf yarn.lock",
     "lint": "eslint .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json,yml}' --config ./.prettierrc.json",
-    "version": "lerna version --conventional-commits --amend --yes"
+    "version": "lerna version --conventional-commits --amend"
   },
   "workspaces": [
     "packages/*"
