@@ -6,6 +6,7 @@ on:
       - 'packages/utils/**'
       - '.github/workflows/utils.yml'
     branches: [main]
+
   pull_request:
     paths:
       - 'packages/utils/**'
@@ -14,79 +15,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  avoid_reduncy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
-
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-      - name: Install dependencies
-        run: yarn install
-
-  lint:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-      - name: Install dependencies
-        run: yarn install
-      - name: Lint
-        run: yarn type-check && yarn lint
-
-  build:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-      - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: |
-          cd packages/utils
-          yarn run build
-
-  test:
-    needs: [lint, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-      - name: Install dependencies
-        run: yarn install
-      - name: Test
-        run: |
-          cd packages/utils
-          yarn test
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      package: utils

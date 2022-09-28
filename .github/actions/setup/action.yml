@@ -1,0 +1,16 @@
+name: setup action
+description: 'Setup the environment'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: ⎔ Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+        cache: 'yarn'
+        cache-dependency-path: '**/yarn.lock'
+
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash

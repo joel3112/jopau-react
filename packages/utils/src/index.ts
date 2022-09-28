@@ -1,7 +1,7 @@
-import { TObject } from './object';
 import { TArray } from './array';
 import { TDate } from './date';
 import { TFunction, TFunctionVoid } from './function';
+import { TObject } from './object';
 
 export type TBasic = string | number | boolean | null | undefined;
 export type TAny =

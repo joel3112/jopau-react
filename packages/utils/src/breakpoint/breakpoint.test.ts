@@ -1,4 +1,5 @@
 import {
+  Breakpoint,
   BreakpointsHelper,
   BreakpointsRules,
   createBreakpoints,
@@ -7,23 +8,23 @@ import {
 
 describe('Breakpoint helper methods', () => {
   describe('createBreakpoints', () => {
-    test('returns breakpoint breakpoints created', () => {
+    test('returns breakpoints created', () => {
       expect(createBreakpoints().rules).toStrictEqual(DEFAULT_CONFIG);
     });
 
     test('returns custom breakpoint breakpoints created', () => {
-      const CUSTOM_CONFIG: BreakpointsRules = {
-        xs: {
-          name: 'xs',
-          width: 0
-        },
-        sm: {
-          name: 'md',
-          width: 400
-        }
-      };
+      const CUSTOM_CONFIG: BreakpointsRules = { xs: 0, sm: 400 };
+      const breakpoints = createBreakpoints({ rules: CUSTOM_CONFIG });
 
-      expect(createBreakpoints({ rules: CUSTOM_CONFIG }).rules).toStrictEqual(CUSTOM_CONFIG);
+      expect(breakpoints.rules).toStrictEqual({ ...DEFAULT_CONFIG, ...CUSTOM_CONFIG });
+    });
+  });
+
+  describe('current', () => {
+    test('returns current breakpoint', () => {
+      const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 400 });
+
+      expect(breakpoints.current).toBe('xs');
     });
   });
 
@@ -39,19 +40,31 @@ describe('Breakpoint helper methods', () => {
 
       expect(breakpoints.between('xs', 'sm')).toBeFalsy();
     });
+
+    test('returns false if breakpoint is not defined', () => {
+      const breakpoints: BreakpointsHelper = createBreakpoints();
+
+      expect(breakpoints.between('abc' as Breakpoint, 'xyz' as Breakpoint)).toBeFalsy();
+    });
   });
 
-  describe('isBreakpointUp', () => {
-    test('returns true if width is greater than min', () => {
+  describe('up', () => {
+    test('returns true if width is greater than sm', () => {
       const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 900 });
 
       expect(breakpoints.up('sm')).toBeTruthy();
     });
 
-    test('returns false if width is not greater than min', () => {
+    test('returns false if width is not greater than sm', () => {
       const breakpoints: BreakpointsHelper = createBreakpoints({ targetWidth: 100 });
 
       expect(breakpoints.up('sm')).toBeFalsy();
+    });
+
+    test('returns false if breakpoint is not defined', () => {
+      const breakpoints: BreakpointsHelper = createBreakpoints();
+
+      expect(breakpoints.up('abc' as Breakpoint)).toBeFalsy();
     });
   });
 });

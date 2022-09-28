@@ -15,12 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **utils:** add some, size and includes collection methods ([33d0ae2](http://jopau-react/commits/33d0ae27b515689e81329c1404c251b9974ec41a))
-
-# [2.3.0](http://jopau-react/compare/@jopau-react/utils@2.2.0...@jopau-react/utils@2.3.0) (2022-09-25)
-
-### Features
-
 - **utils:** add some, size and includes collection methods ([589e9af](http://jopau-react/commits/589e9af6e6082470c5926eaff944caca38e9fb15))
 
 # 2.2.0 (2022-09-25)

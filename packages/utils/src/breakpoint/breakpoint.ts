@@ -2,13 +2,8 @@ import { getPropValue } from '../object';
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type BreakpointRule = 'width' | 'name';
-export type BreakpointRuleValue = Breakpoint | number;
-
-export type BreakpointRules = Record<BreakpointRule, BreakpointRuleValue>;
-
 export type BreakpointsRules = {
-  [key in Breakpoint]?: BreakpointRules;
+  [key in Breakpoint]?: number;
 };
 
 export interface BreakpointsConfig {
@@ -17,31 +12,16 @@ export interface BreakpointsConfig {
 }
 
 export const DEFAULT_CONFIG: BreakpointsRules = {
-  xs: {
-    name: 'xs',
-    width: 0
-  },
-  sm: {
-    name: 'sm',
-    width: 600
-  },
-  md: {
-    name: 'md',
-    width: 900
-  },
-  lg: {
-    name: 'lg',
-    width: 1200
-  },
-  xl: {
-    name: 'xl',
-    width: 1536
-  }
+  xs: 0,
+  sm: 600,
+  md: 900,
+  lg: 1200,
+  xl: 1536
 };
 
 export class BreakpointsHelper {
-  key: Breakpoint | null = null;
   rules: BreakpointsRules = {};
+  current: Breakpoint | null = null;
   #targetWidth = 0;
 
   get #matches(): { [key in Breakpoint]: boolean } {
@@ -54,31 +34,36 @@ export class BreakpointsHelper {
     };
   }
 
-  createBreakpoints(config: BreakpointsConfig): BreakpointsHelper {
-    this.rules = getPropValue(config, 'rules', DEFAULT_CONFIG);
-    this.#targetWidth = getPropValue(config, 'targetWidth', window.innerWidth);
+  #getValue(key: Breakpoint): number {
+    return getPropValue(this.rules, key);
+  }
 
-    this.key = this.#targetWidth
+  createBreakpoints(config: BreakpointsConfig): BreakpointsHelper {
+    this.#targetWidth = getPropValue(config, 'targetWidth', window.innerWidth);
+    this.rules = {
+      ...DEFAULT_CONFIG,
+      ...getPropValue(config, 'rules', {})
+    };
+    this.current = this.#targetWidth
       ? (Object.keys(this.#matches).filter(
           (key) => this.#matches[key as Breakpoint]
         )[0] as Breakpoint)
       : null;
+    console.log('this.current', this.current);
     return this;
   }
 
   between(min: Breakpoint, max: Breakpoint): boolean {
-    return (
-      this.#targetWidth >= this.#getRuleValue<number>(min, 'width') &&
-      this.#targetWidth <= this.#getRuleValue<number>(max, 'width')
-    );
+    if (this.#getValue(min) === undefined) {
+      return false;
+    }
+    return this.#getValue(max) !== undefined
+      ? this.#targetWidth >= this.#getValue(min) && this.#targetWidth <= this.#getValue(max)
+      : this.#targetWidth >= this.#getValue(min);
   }
 
   up(min: Breakpoint): boolean {
-    return this.#targetWidth >= this.#getRuleValue<number>(min, 'width');
-  }
-
-  #getRuleValue<T>(key: Breakpoint, rule: BreakpointRule): T {
-    return getPropValue(this.rules, `${key}.${rule}`, null as T);
+    return this.#getValue(min) !== undefined ? this.#targetWidth >= this.#getValue(min) : false;
   }
 }
 
