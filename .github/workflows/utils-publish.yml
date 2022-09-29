@@ -25,10 +25,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
       - name: 🏷️ Tag version
-        run: |
-          config user.name "Joel Paucarima Franco"
-          config user.email "jopau3112@gmail.com"
-          yarn run version
+        run: yarn run version
       - name: 📦 Publish package to NPM
         run: |
           cd packages/utils
