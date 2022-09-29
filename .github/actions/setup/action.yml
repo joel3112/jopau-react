@@ -12,5 +12,5 @@ runs:
         registry-url: 'https://registry.npmjs.org'
         scope: '@jopau-react'
 
-    - run: yarn install --frozen-lockfile
+    - run: yarn install
       shell: bash

@@ -2,6 +2,3 @@ node_modules
 # Ignore artifacts:
 coverage
 dist
-
-CHANGELOG.md
-lerna.json
