@@ -7,9 +7,6 @@ on:
       - '.github/workflows/utils.yml'
     branches: [main]
 
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
 jobs:
   call-workflow:
     uses: ./.github/workflows/reusable.yml
@@ -22,10 +19,11 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - name: 🏷️ Tag version
-        run: yarn run version
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          yarn run version
       - name: 📦 Publish package to NPM
         run: |
           cd packages/utils
