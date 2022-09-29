@@ -16,4 +16,5 @@ jobs:
       - name: 🔖 Release version
         uses: ncipollo/release-action@v1
         with:
+          bodyFile: CHANGELOG.md
           token: ${{ secrets.GH_TOKEN }}
