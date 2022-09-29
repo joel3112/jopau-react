@@ -7,17 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @jopau-react/utils
 
-
-
-
-
 ## 3.0.1 (2022-09-29)
 
 **Note:** Version bump only for package @jopau-react/utils
-
-
-
-
 
 # [3.0.0](http://jopau-react/compare/@jopau-react/utils@2.3.0...@jopau-react/utils@3.0.0) (2022-09-26)
 

@@ -5,7 +5,8 @@ on:
     paths:
       - 'packages/utils/**'
       - '.github/workflows/utils.yml'
-    branches: [main]
+    branches:
+      - main
 
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -19,16 +20,16 @@ jobs:
   publish:
     needs: call-workflow
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - name: 📥 Setup Node and Install dependencies
         uses: ./.github/actions/setup
       - name: 🏷️ Tag version
         run: |
-          git config user.name "GitHub Actions Bot"
+          git config user.name "Joel Paucarima Franco"
           git config user.email "<>"
           yarn run version
       - name: 📦 Publish package to NPM
@@ -36,6 +37,8 @@ jobs:
           cd packages/utils
           yarn run build
           cp package.json ./dist && cp README.md ./dist
+          ls -la ./dist
+          cat ./dist/package.json
           npm publish ./dist --access public
           echo "Package published successfully 🎉"
         env:
