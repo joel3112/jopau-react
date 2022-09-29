@@ -18,8 +18,10 @@ jobs:
         id: cpv
         with:
           path: packages/utils
-      - name: 📦 Publish package to NPM
+      - name: 🏷️ Tag version
         if: steps.cpv.outputs.is-new-version == 'true'
+        run: yarn run version
+      - name: 📦 Publish package to NPM
         run: |
           cd packages/utils
           yarn run build
@@ -28,6 +30,3 @@ jobs:
           echo "Package published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: 🏷️ Tag version
-        if: steps.cpv.outputs.is-new-version == 'true'
-        run: yarn run version
