@@ -3,7 +3,7 @@ name: jopau-react/utils release
 on:
   push:
     tags:
-      - '@jopau-react/utils@*'
+      - 'v*'
 
 jobs:
   release:
