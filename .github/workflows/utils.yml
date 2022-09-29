@@ -1,12 +1,6 @@
 name: jopau-react/utils
 
 on:
-  push:
-    paths:
-      - 'packages/utils/**'
-      - '.github/workflows/utils.yml'
-    branches: [main]
-
   pull_request:
     paths:
       - 'packages/utils/**'
