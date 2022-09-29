@@ -21,7 +21,8 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-      - uses: ./.github/actions/setup
+      - name: 📥 Setup Node and Install dependencies
+        uses: ./.github/actions/setup
 
   lint:
     needs: install
@@ -29,7 +30,8 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-      - uses: ./.github/actions/setup
+      - name: 📥 Setup Node and Install dependencies
+        uses: ./.github/actions/setup
       - name: 🚨 Lint
         run: yarn type-check && yarn lint
 
@@ -39,7 +41,8 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-      - uses: ./.github/actions/setup
+      - name: 📥 Setup Node and Install dependencies
+        uses: ./.github/actions/setup
       - name: 👷 Build
         run: |
           cd packages/${{ inputs.package }}
@@ -51,7 +54,8 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
-      - uses: ./.github/actions/setup
+      - name: 📥 Setup node - Install dependencies
+        uses: ./.github/actions/setup
       - name: ✅ Test
         run: |
           cd packages/${{ inputs.package }}

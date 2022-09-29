@@ -1,0 +1,33 @@
+name: jopau-react/utils publish
+
+on:
+  push:
+    paths:
+      - 'packages/utils/**'
+      - '.github/workflows/utils.yml'
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository
+        uses: actions/checkout@v2
+      - name: ✅ Check Package Version
+        uses: PostHog/check-package-version@v2
+        id: cpv
+        with:
+          path: packages/utils
+      - name: 📦 Publish package to NPM
+        if: steps.cpv.outputs.is-new-version == 'true'
+        run: |
+          cd packages/utils
+          yarn run build
+          cp package.json ./dist && cp README.md ./dist
+          npm publish ./dist --access public
+          echo "Package published successfully 🎉"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 🏷️ Tag version
+        if: steps.cpv.outputs.is-new-version == 'true'
+        run: yarn run version
