@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.6 (2022-09-29)
+
+
+### Bug Fixes
+
+* publish + release ([ce995eb](http://jopau-react/commits/ce995ebf77c706080a52174eaf9e048aed93529c))
+
+
+
+
+
 ## 3.0.5 (2022-09-29)
 
 
