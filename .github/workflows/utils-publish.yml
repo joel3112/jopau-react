@@ -8,13 +8,18 @@ on:
     branches: [main]
 
 jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      package: utils
+
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v2
       - name: 🏷️ Tag version
-        run: yarn run version
+        run: lerna version --conventional-commits --yes
       - name: 📦 Publish package to NPM
         run: |
           cd packages/utils
