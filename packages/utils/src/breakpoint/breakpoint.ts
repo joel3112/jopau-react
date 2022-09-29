@@ -49,7 +49,7 @@ export class BreakpointsHelper {
           (key) => this.#matches[key as Breakpoint]
         )[0] as Breakpoint)
       : null;
-
+    console.log(this.current);
     return this;
   }
 
