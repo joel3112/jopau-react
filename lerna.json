@@ -1,13 +1,12 @@
 {
   "useNx": true,
   "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "3.0.8",
   "npmClient": "yarn",
   "command": {
     "publish": {
+      "allowBranch": "main",
       "message": "chore(release): %s",
       "conventionalCommits": true
     },

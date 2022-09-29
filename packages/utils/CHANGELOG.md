@@ -7,39 +7,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @jopau-react/utils
 
-
-
-
-
 ## 3.0.7 (2022-09-29)
 
 **Note:** Version bump only for package @jopau-react/utils
 
-
-
-
-
 ## 3.0.6 (2022-09-29)
-
 
 ### Bug Fixes
 
-* publish + release ([ce995eb](http://jopau-react/commits/ce995ebf77c706080a52174eaf9e048aed93529c))
-
-
-
-
+- publish + release ([ce995eb](http://jopau-react/commits/ce995ebf77c706080a52174eaf9e048aed93529c))
 
 ## 3.0.5 (2022-09-29)
 
-
 ### Bug Fixes
 
-* publish version and release 2 ([c35507c](http://jopau-react/commits/c35507cf0edb9f6257b17e94eb973e396aefcf03))
-
-
-
-
+- publish version and release 2 ([c35507c](http://jopau-react/commits/c35507cf0edb9f6257b17e94eb973e396aefcf03))
 
 ## 3.0.4 (2022-09-29)
 
