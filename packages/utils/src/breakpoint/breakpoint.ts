@@ -54,6 +54,7 @@ export class BreakpointsHelper {
   }
 
   between(min: Breakpoint, max: Breakpoint): boolean {
+    console.log('between');
     if (this.#getValue(min) === undefined) {
       return false;
     }
@@ -64,6 +65,7 @@ export class BreakpointsHelper {
   }
 
   up(min: Breakpoint): boolean {
+    console.log('up');
     return this.#getValue(min) !== undefined ? this.#targetWidth >= this.#getValue(min) : false;
   }
 }
