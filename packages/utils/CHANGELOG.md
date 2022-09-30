@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/joel3112/jopau-react/compare/v3.2.2...v3.3.0) (2022-09-30)
+
+
+### Bug Fixes
+
+* **utils:** remove break line ([8b8287c](https://github.com/joel3112/jopau-react/commit/8b8287c415345c3a3fef594cbf2541ef1ec10f56))
+
+
+
+
+
 ## [3.2.2](/compare/v3.2.1...v3.2.2) (2022-09-30)
 
 
