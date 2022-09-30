@@ -4,11 +4,12 @@ on:
   push:
     paths:
       - 'packages/utils/**'
-      - '.github/workflows/utils.yml'
+      - '.github/workflows/utils-publish.yml'
+      - '!CHANGELOG.md'
+      - '!lerna.json'
+      - '!packages/**/CHANGELOG.md'
     branches:
       - main
-    tags-ignore:
-      - 'v*'
 
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -52,8 +53,3 @@ jobs:
           echo "Package published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: 🔖 Release version
-        id: release
-        uses: phish108/release-check@1.0.11
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
