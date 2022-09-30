@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/joel3112/jopau-react/compare/v3.1.0...v3.1.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* add paths ignore ([1ceafba](https://github.com/joel3112/jopau-react/commit/1ceafba47391e5dbd2196bc0451c14315cb697ec))
+
+
+
+
+
 # [3.1.0](https://github.com/joel3112/jopau-react/compare/v3.0.10...v3.1.0) (2022-09-30)
 
 
