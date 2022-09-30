@@ -36,7 +36,9 @@ jobs:
           git config user.name "Release Bot"
           git config user.email "<>"
           yarn build
+          npm run version
           npm run publish
           echo "Packages published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
