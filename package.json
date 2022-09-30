@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "build": "lerna run build --stream",
     "test": "lerna run test --stream",
-    "publish": "lerna publish --yes"
+    "publish": "lerna publish from-package --yes"
   },
   "workspaces": [
     "packages/*"
