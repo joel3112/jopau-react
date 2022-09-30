@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](/compare/v3.1.1...v3.1.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* add console.logs d1769c2
+* update publish scripts 89dc5d4
+
+
+
+
+
 ## [3.1.1](/compare/v3.1.0...v3.1.1) (2022-09-30)
 
 
