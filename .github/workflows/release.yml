@@ -21,10 +21,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
       - run: echo "The release was published with the id ${{ steps.create_release.outputs.id }} with url ${{ steps.create_release.outputs.html_url }}"
