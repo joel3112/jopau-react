@@ -44,7 +44,6 @@ export class BreakpointsHelper {
       ...DEFAULT_CONFIG,
       ...getPropValue(config, 'rules', {})
     };
-
     this.current = this.#targetWidth
       ? (Object.keys(this.#matches).filter(
           (key) => this.#matches[key as Breakpoint]
