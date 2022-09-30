@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.10](https://github.com/joel3112/jopau-react/compare/v3.0.9...v3.0.10) (2022-09-30)
+
+
+### Bug Fixes
+
+* format changelogs ([727bd0c](https://github.com/joel3112/jopau-react/commit/727bd0cd70307a007703e934056549ac8abb40ee))
+* publish action ([d37ab8a](https://github.com/joel3112/jopau-react/commit/d37ab8a216b096c8bfce56774aef8b995ac4bb8a))
+
+
+
+
+
 ## 3.0.9 (2022-09-29)
 
 **Note:** Version bump only for package @jopau-react/root

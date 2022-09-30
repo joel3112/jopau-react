@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.10](/compare/v3.0.9...v3.0.10) (2022-09-30)
+
+
+### Bug Fixes
+
+* format changelogs 727bd0c
+* publish action d37ab8a
+
+
+
+
+
 ## 3.0.9 (2022-09-29)
 
 **Note:** Version bump only for package @jopau-react/utils
