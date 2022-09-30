@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @jopau-react/root
 
-
-
-
-
 ## 3.0.8 (2022-09-29)
 
 **Note:** Version bump only for package @jopau-react/root
