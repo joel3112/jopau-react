@@ -66,6 +66,7 @@ export class BreakpointsHelper {
     return this.#getValue(min) !== undefined ? this.#targetWidth >= this.#getValue(min) : false;
   }
 }
+
 export const { createBreakpoints } = {
   createBreakpoints: (config?: BreakpointsConfig) =>
     new BreakpointsHelper().createBreakpoints(config || {})
