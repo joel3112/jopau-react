@@ -1,0 +1,21 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: ⬇️ Check out repository
+        uses: actions/checkout@v3
+      - name: 🔖 Release version
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: ../../CHANGELOG.md
+          token: ${{ secrets.GH_TOKEN }}
+          generateReleaseNotes: true
