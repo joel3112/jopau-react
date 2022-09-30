@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "build": "lerna run build --stream",
     "test": "lerna run test --stream",
-    "version-packages": "lerna version --conventional-commits --yes",
     "publish": "lerna publish --yes"
   },
   "workspaces": [

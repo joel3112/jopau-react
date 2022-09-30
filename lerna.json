@@ -8,6 +8,7 @@
   "npmClient": "yarn",
   "command": {
     "version": {
+      "allowBranch": "main",
       "message": "chore(release): %s",
       "conventionalCommits": true
     }

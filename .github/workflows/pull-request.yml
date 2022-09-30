@@ -10,5 +10,3 @@ on:
 jobs:
   call-workflow:
     uses: ./.github/workflows/reusable.yml
-    with:
-      package: utils

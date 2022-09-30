@@ -33,13 +33,10 @@ jobs:
         uses: ./.github/actions/setup
       - name: 📦 Publish package to NPM
         run: |
+          git config user.name "Joel Paucarima Franco"
+          git config user.email "<>"
           yarn build
           yarn publish
           echo "Packages published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: 🏷️ Tag version
-        run: |
-          git config user.name "Joel Paucarima Franco"
-          git config user.email "<>"
-          yarn version-packages
