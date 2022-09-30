@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](/compare/v3.2.0...v3.2.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* change publish script e768da1
+* publish from package 643748d
+* publish from package f5826f3
+* remove break line d69b006
+* remove break line 39135eb
+
+
+
+
+
 # [3.2.0](/compare/v3.1.2...v3.2.0) (2022-09-30)
 
 
