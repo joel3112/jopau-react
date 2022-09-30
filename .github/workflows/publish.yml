@@ -1,0 +1,45 @@
+name: publish
+
+on:
+  push:
+    paths:
+      - 'packages/**/*'
+      - '!CHANGELOG.md'
+      - '!lerna.json'
+      - '!packages/**/CHANGELOG.md'
+      - '!packages/**/package.json'
+    branches:
+      - main
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+
+  publish:
+    needs: call-workflow
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: ⬇️ Check out repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: '0'
+      - name: 📥 Setup Node and Install dependencies
+        uses: ./.github/actions/setup
+      - name: 📦 Publish package to NPM
+        run: |
+          yarn build
+          yarn publish
+          echo "Packages published successfully 🎉"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 🏷️ Tag version
+        run: |
+          git config user.name "Joel Paucarima Franco"
+          git config user.email "<>"
+          yarn version-packages

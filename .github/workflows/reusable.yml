@@ -2,10 +2,6 @@ name: reusable workflow
 
 on:
   workflow_call:
-    inputs:
-      package:
-        required: true
-        type: string
 
 jobs:
   avoid_reduncy:
@@ -20,7 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
       - name: 📥 Setup Node and Install dependencies
         uses: ./.github/actions/setup
 
@@ -29,7 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
       - name: 📥 Setup Node and Install dependencies
         uses: ./.github/actions/setup
       - name: 🚨 Lint
@@ -40,23 +40,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
       - name: 📥 Setup Node and Install dependencies
         uses: ./.github/actions/setup
       - name: 👷 Build
-        run: |
-          cd packages/${{ inputs.package }}
-          yarn run build
+        run: yarn build
 
   unit-tests:
     needs: [lint, build]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
       - name: 📥 Setup node - Install dependencies
         uses: ./.github/actions/setup
       - name: ✅ Test
-        run: |
-          cd packages/${{ inputs.package }}
-          yarn test
+        run: yarn test
