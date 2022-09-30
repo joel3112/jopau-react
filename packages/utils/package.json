@@ -15,7 +15,8 @@
     "luxon": "^3.0.3"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.185",
