@@ -19,7 +19,7 @@ jobs:
   #    uses: ./.github/workflows/reusable.yml
 
   publish:
-    needs: call-workflow
+    #    needs: call-workflow
     runs-on: ubuntu-latest
     permissions:
       contents: write
