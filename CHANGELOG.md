@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/joel3112/jopau-react/compare/v3.1.2...v3.2.0) (2022-09-30)
+
+
+### Bug Fixes
+
+* remove console log 1 ([22d5eea](https://github.com/joel3112/jopau-react/commit/22d5eea528786fcf4c666890c6f53de9aa73e394))
+
+
+### Features
+
+* remove console log 2 ([46f2bc1](https://github.com/joel3112/jopau-react/commit/46f2bc11304b32622472fae16328211dd2c183c2))
+
+
+
+
+
+## [3.1.2](https://github.com/joel3112/jopau-react/compare/v3.1.1...v3.1.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* add console.logs ([d1769c2](https://github.com/joel3112/jopau-react/commit/d1769c2740df81ea2bfd2ad7cc85eb29d03797d1))
+* update publish scripts ([89dc5d4](https://github.com/joel3112/jopau-react/commit/89dc5d4835d815346f3af9797848949ff420950f))
+* update publish workflows ([b55b563](https://github.com/joel3112/jopau-react/commit/b55b5638a4bc2fcad66f71e6bd26b10dc634c679))
+
+
+
+
+
 ## [3.1.1](https://github.com/joel3112/jopau-react/compare/v3.1.0...v3.1.1) (2022-09-30)
 
 

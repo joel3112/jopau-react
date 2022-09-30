@@ -1,15 +1,12 @@
-name: jopau-react/utils
+name: pull request
 
 on:
   pull_request:
     paths:
-      - 'packages/utils/**'
-      - '.github/workflows/utils.yml'
+      - 'packages/**/*'
     branches: [main]
     types: [opened, synchronize, reopened]
 
 jobs:
   call-workflow:
     uses: ./.github/workflows/reusable.yml
-    with:
-      package: utils
