@@ -54,6 +54,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 🔖 Release version
         id: release
-        uses: phish108/release-check@1.0.11-main.3
+        uses: phish108/release-check@1.0.11
         with:
           github-token: ${{ secrets.GH_TOKEN }}
