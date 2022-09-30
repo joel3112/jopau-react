@@ -8,7 +8,7 @@ runs:
       with:
         node-version: '14'
         cache: 'yarn'
-        cache-dependency-path: '**/yarn.lock'
+        cache-dependency-path: 'yarn.lock'
         registry-url: 'https://registry.npmjs.org'
         scope: '@jopau-react'
 

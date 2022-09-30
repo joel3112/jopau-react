@@ -15,11 +15,11 @@ env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  #  call-workflow:
-  #    uses: ./.github/workflows/reusable.yml
+  ci:
+    uses: ./.github/workflows/reusable.yml
 
   publish:
-    #    needs: call-workflow
+    needs: ci
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/actions/setup
       - name: 📦 Publish package to NPM
         run: |
-          git config user.name "Joel Paucarima Franco"
+          git config user.name "release bot"
           git config user.email "<>"
           yarn build
           npm run publish
