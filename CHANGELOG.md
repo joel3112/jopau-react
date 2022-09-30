@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.5](https://github.com/joel3112/jopau-react/compare/v3.3.4...v3.3.5) (2022-09-30)
+
+
+### 🏠 Internal
+
+* release action test 2 ([2db4fab](https://github.com/joel3112/jopau-react/commit/2db4fab5ba977e018ba7019d1a3dc6a027e7ff87))
+
+
+### 🐛 Bug Fixes
+
+* **hooks:** test ([9ade143](https://github.com/joel3112/jopau-react/commit/9ade143edf8558e13f51a6eca7c00357988cd1f5))
+
+
+
 ## [3.3.4](https://github.com/joel3112/jopau-react/compare/v3.3.3...v3.3.4) (2022-09-30)
 
 
