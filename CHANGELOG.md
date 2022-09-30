@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/joel3112/jopau-react/compare/v3.3.0...v3.3.2) (2022-09-30)
+
+
+### 🐛 Bug Fixes
+
+* **hooks:** add key breakpoint ([981926f](https://github.com/joel3112/jopau-react/commit/981926f152938ef34821c67ad7413c7defdaba7c))
+* **hooks:** sort imports ([88b8e2b](https://github.com/joel3112/jopau-react/commit/88b8e2b3a4dea2450aec526d2f69e3905d456295))
+
+
+### 🏠 Internal
+
+* add postpublish script ([8701705](https://github.com/joel3112/jopau-react/commit/87017058e4ab47ce567ad407356a5bc97374a498))
+* changelog labels ([792f709](https://github.com/joel3112/jopau-react/commit/792f709ac406052e68193ca1a57338bfe6ba697e))
+* release workflow ([cc2992f](https://github.com/joel3112/jopau-react/commit/cc2992f4328125330ed6212e6378d95413fcdd6c))
+* **release:** v3.3.1 ([7a4dae8](https://github.com/joel3112/jopau-react/commit/7a4dae8a43f06334c0ff2437a0a3506c934523b8))
+* update publish workflows ([b867470](https://github.com/joel3112/jopau-react/commit/b867470573f405cd13b823a855428e21e82131c1))
+
+
+
 ## [3.3.1](https://github.com/joel3112/jopau-react/compare/v3.3.0...v3.3.1) (2022-09-30)
 
 
