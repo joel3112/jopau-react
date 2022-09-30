@@ -8,7 +8,8 @@
   "module": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
-    "test": "jest --config ../../jest.config.js"
+    "test": "jest --config ../../jest.config.js",
+    "prepublishOnly": "cp package.json dist/package.json && cp README.md dist/README.md"
   },
   "dependencies": {
     "lodash": "^4.17.21",

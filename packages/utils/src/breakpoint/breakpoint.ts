@@ -65,7 +65,6 @@ export class BreakpointsHelper {
   }
 
   up(min: Breakpoint): boolean {
-    console.log('up');
     return this.#getValue(min) !== undefined ? this.#targetWidth >= this.#getValue(min) : false;
   }
 }
