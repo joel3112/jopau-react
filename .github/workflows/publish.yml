@@ -36,7 +36,7 @@ jobs:
           git config user.name "Joel Paucarima Franco"
           git config user.email "<>"
           yarn build
-          yarn run publish
+          npm run publish
           echo "Packages published successfully 🎉"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
