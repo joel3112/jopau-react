@@ -2,14 +2,14 @@
   "name": "@jopau-react/root",
   "private": true,
   "scripts": {
-    "build": "lerna run build --stream",
-    "publish": "lerna publish --registry=https://npm.pkg.github.com/",
-    "test": "lerna run test --stream",
-    "type-check": "tsc --pretty --noEmit",
-    "bootstrap": "lerna bootstrap",
     "clean": "lerna clean && rm -rf yarn.lock",
+    "bootstrap": "lerna bootstrap",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json,yml}' --config ./.prettierrc.json",
     "lint": "eslint .",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json,yml}' --config ./.prettierrc.json"
+    "build": "lerna run build --stream",
+    "test": "lerna run test --stream",
+    "publish": "lerna run publish --stream"
   },
   "workspaces": [
     "packages/*"

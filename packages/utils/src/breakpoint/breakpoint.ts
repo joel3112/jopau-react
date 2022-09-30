@@ -57,6 +57,7 @@ export class BreakpointsHelper {
     if (this.#getValue(min) === undefined) {
       return false;
     }
+
     return this.#getValue(max) !== undefined
       ? this.#targetWidth >= this.#getValue(min) && this.#targetWidth <= this.#getValue(max)
       : this.#targetWidth >= this.#getValue(min);
