@@ -14,8 +14,6 @@ jobs:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v3
       - name: 🔖 Release version
-        uses: ncipollo/release-action@v1
-        with:
-          bodyFile: ./CHANGELOG.md
-          token: ${{ secrets.GH_TOKEN }}
-          generateReleaseNotes: true
+        uses: Roang-zero1/github-create-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
