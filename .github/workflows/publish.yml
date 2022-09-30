@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/actions/setup
       - name: 📦 Publish package to NPM
         run: |
-          git config user.name "release-bot"
+          git config user.name "Release Bot"
           git config user.email "<>"
           yarn build
           npm run publish
