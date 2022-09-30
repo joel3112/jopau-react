@@ -4,7 +4,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "3.3.0",
+  "version": "3.3.1",
   "npmClient": "yarn",
   "command": {
     "version": {
@@ -54,6 +54,13 @@
         "section": "🧪 Tests",
         "hidden": false
       }
-    ]
+    ],
+    "issuePrefixes": [
+      "#"
+    ],
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
+    "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+    "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+    "userUrlFormat": "{{host}}/{{user}}"
   }
 }

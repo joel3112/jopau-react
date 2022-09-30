@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/joel3112/jopau-react/compare/v3.3.0...v3.3.1) (2022-09-30)
+
+
+### 🐛 Bug Fixes
+
+* **hooks:** add key breakpoint ([981926f](https://github.com/joel3112/jopau-react/commit/981926f152938ef34821c67ad7413c7defdaba7c))
+
+
+
 # [3.3.0](https://github.com/joel3112/jopau-react/compare/v3.2.2...v3.3.0) (2022-09-30)
 
 
