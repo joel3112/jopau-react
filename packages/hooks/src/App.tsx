@@ -4,12 +4,10 @@ import { useBreakpoint } from './useBreakpoint';
 
 function App() {
   const [count, setCount] = useState(0);
-  const props = useBreakpoint();
-
-  console.log(props);
+  const { key } = useBreakpoint();
 
   return (
-    <div className="App">
+    <div className={`App ${key}`}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="./vite.svg" className="logo" alt="Vite logo" />
