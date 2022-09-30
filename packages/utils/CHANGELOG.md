@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/joel3112/jopau-react/compare/v3.3.2...v3.3.3) (2022-09-30)
+
+
+### 🐛 Bug Fixes
+
+* **utils:** prueba 1 ([b29c398](https://github.com/joel3112/jopau-react/commit/b29c398c5868d041b79e858973248d9f99767279))
+
+
+
 # [3.3.0](https://github.com/joel3112/jopau-react/compare/v3.2.2...v3.3.0) (2022-09-30)
 
 
