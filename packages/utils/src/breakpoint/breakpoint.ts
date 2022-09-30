@@ -68,8 +68,7 @@ export class BreakpointsHelper {
   }
 }
 
-const breakpointHelper = new BreakpointsHelper();
 export const { createBreakpoints } = {
   createBreakpoints: (config?: BreakpointsConfig) =>
-    breakpointHelper.createBreakpoints(config || {})
+    new BreakpointsHelper().createBreakpoints(config || {})
 };
