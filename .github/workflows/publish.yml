@@ -15,8 +15,8 @@ env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  call-workflow:
-    uses: ./.github/workflows/reusable.yml
+  #  call-workflow:
+  #    uses: ./.github/workflows/reusable.yml
 
   publish:
     needs: call-workflow
