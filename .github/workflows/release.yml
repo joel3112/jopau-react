@@ -18,9 +18,9 @@ jobs:
       - name: 🔖 Release version
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
-          automatic_release_tag: 'latest'
+          automatic_release_tag: ${{github.ref}}
 #      - name: 🔖 Release version
 #        uses: fregante/release-with-changelog@v3
 #        with:
