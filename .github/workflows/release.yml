@@ -15,11 +15,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 🔖 Release version
-        uses: anton-yurchenko/git-release@v5.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_PREFIX_REGEX: '*'
+      - name: changelog-ci
+        uses: saadmk11/changelog-ci@v1.0.0
+        id: changelog-ci
+      - name: Get Changelog Output
+        run: |
+          echo "${{ steps.changelog-ci.outputs.changelog }}"
+
 #      - name: 🔖 Release version
 #        uses: fregante/release-with-changelog@v3
 #        with:
