@@ -18,19 +18,12 @@ jobs:
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
-      - name: changelog-ci
-        uses: saadmk11/changelog-ci@v1.0.0
-        id: changelog-ci
+      - uses: taiki-e/create-gh-release-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_version: ${{ steps.tag.outputs.tag }}
-      - name: Get Changelog Output
-        run: |
-          echo "${{ steps.changelog-ci.outputs.changelog }}"
-          echo "${{ github.ref.name }}"
-          echo "${{ github.ref }}"
-          echo "${{ steps.tag.outputs.tag }}"
-
+          # (Optional) Path to changelog.
+          changelog: CHANGELOG.md
+          # (Required) GitHub token for creating GitHub Releases.
+          token: ${{ secrets.GITHUB_TOKEN }}
 #      - name: 🔖 Release version
 #        uses: fregante/release-with-changelog@v3
 #        with:
