@@ -8,5 +8,5 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  call-workflow:
+  ci:
     uses: ./.github/workflows/reusable.yml
