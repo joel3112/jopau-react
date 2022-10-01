@@ -15,23 +15,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
-      - uses: taiki-e/create-gh-release-action@v1
+      - name: 🔖 Release version
+        uses: taiki-e/create-gh-release-action@v1
         with:
-          # (Optional) Path to changelog.
           changelog: CHANGELOG.md
-          # (Required) GitHub token for creating GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
-#      - name: 🔖 Release version
-#        uses: fregante/release-with-changelog@v3
-#        with:
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          commit-template: '- {hash} {title}'
-#          template: |
-#            ### Changelog
-#
-#            {commits}
-#
-#            {range}
