@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 🔖 Release version
-        uses: docker://antonyurchenko/git-release:latest
+        uses: anton-yurchenko/git-release@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: 🔖 Release version

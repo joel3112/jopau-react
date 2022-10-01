@@ -1,6 +1,6 @@
 {
   "name": "@jopau-react/hooks",
-  "version": "3.3.11",
+  "version": "3.3.12",
   "description": "Common hooks for React projects",
   "author": "Joel Paucarima Franco <jopau3112@gmail.com>",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@jopau-react/utils": "^3.3.7"
+    "@jopau-react/utils": "^3.3.12"
   },
   "peerDependencies": {
     "@types/react": "^17.0.0 || ^18.0.0",

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.12](https://github.com/joel3112/jopau-react/compare/v3.3.11...v3.3.12) (2022-10-01)
+
+
+### 🏠 Internal
+
+* fff ([41a4e6c](https://github.com/joel3112/jopau-react/commit/41a4e6c6fe25e15f5c310ea1a0045ad58fa6498c))
+
+
+### 🐛 Bug Fixes
+
+* **utils:** fff ([ef2bdd4](https://github.com/joel3112/jopau-react/commit/ef2bdd45e3a7b47cc76e84474383561b81eb11fb))
+
+
+
 ## [3.3.11](https://github.com/joel3112/jopau-react/compare/v3.3.10...v3.3.11) (2022-10-01)
 
 
