@@ -18,6 +18,9 @@ jobs:
       - name: changelog-ci
         uses: saadmk11/changelog-ci@v1.0.0
         id: changelog-ci
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          release_version: ${{ github.ref.replace('refs/tags/', '') }}
       - name: Get Changelog Output
         run: |
           echo "${{ steps.changelog-ci.outputs.changelog }}"
