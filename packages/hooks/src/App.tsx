@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useBreakpoint } from './useBreakpoint';
 import './App.css';
+
 const App = () => {
   const [count, setCount] = useState(0);
   const { key } = useBreakpoint();
