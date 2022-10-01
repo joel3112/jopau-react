@@ -20,6 +20,7 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          commitMode: true
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
@@ -40,10 +41,19 @@ jobs:
                   "title": "## 🏠 Chore",
                   "labels": ["chore"]
                 },
-              ]
+              ],
+              "label_extractor": [
+                {
+                  "pattern": "(.) (.+)",
+                  "target": "$1"
+                }
+              ],
             }
+      - run: |
+          echo "Changelog:"
+          echo "${{ steps.github_release.outputs.changelog }}"
+          echo "{{ steps.github_release.outputs.changes }}"
       - name: 🔖 Create Release
         uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
         with:
           body: ${{steps.github_release.outputs.changelog}}
-          commitMode: true
