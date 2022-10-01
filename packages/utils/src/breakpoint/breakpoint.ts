@@ -18,7 +18,6 @@ export const DEFAULT_CONFIG: BreakpointsRules = {
   lg: 1200,
   xl: 1536
 };
-
 export class BreakpointsHelper {
   rules: BreakpointsRules = {};
   current: Breakpoint | null = null;
