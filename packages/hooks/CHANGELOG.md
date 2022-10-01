@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.17](https://github.com/joel3112/jopau-react/compare/v3.3.16...v3.3.17) (2022-10-01)
+
+
+### 🐛 Bug Fixes
+
+* **hooks:** kkk ([74f79e7](https://github.com/joel3112/jopau-react/commit/74f79e791356d5f23c9c110f24377e7c55bf54c7))
+
+
+
 ## [3.3.16](https://github.com/joel3112/jopau-react/compare/v3.3.15...v3.3.16) (2022-10-01)
 
 
