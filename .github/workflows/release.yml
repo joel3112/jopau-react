@@ -15,15 +15,21 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
       - name: changelog-ci
         uses: saadmk11/changelog-ci@v1.0.0
         id: changelog-ci
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-          release_version: ${{ github.ref.replace('refs/tags/', '') }}
+          release_version: ${{ steps.tag.outputs.tag }}
       - name: Get Changelog Output
         run: |
           echo "${{ steps.changelog-ci.outputs.changelog }}"
+          echo "${{ github.ref.name }}"
+          echo "${{ github.ref }}"
+          echo "${{ steps.tag.outputs.tag }}"
 
 #      - name: 🔖 Release version
 #        uses: fregante/release-with-changelog@v3
