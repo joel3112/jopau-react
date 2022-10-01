@@ -20,7 +20,13 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo "changelog ${{ steps.github_release.outputs.changelog }}"
+          echo "fromTag ${{ steps.github_release.outputs.fromTag }}"
+          echo "toTag ${{ steps.github_release.outputs.toTag }}"
       - name: 🔖 Create Release
         uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
         with:
           body: ${{steps.github_release.outputs.changelog}}
+          fromTag: ${{steps.github_release.outputs.fromTag}}
+          toTag: ${{steps.github_release.outputs.toTag}}
