@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.13](https://github.com/joel3112/jopau-react/compare/v3.3.12...v3.3.13) (2022-10-01)
+
+
+### 🐛 Bug Fixes
+
+* **hooks:** ggg ([3c2df9a](https://github.com/joel3112/jopau-react/commit/3c2df9a4fbd67c433e4b2b7f862d5683b9ad007b))
+
+
+
 ## [3.3.12](https://github.com/joel3112/jopau-react/compare/v3.3.11...v3.3.12) (2022-10-01)
 
 **Note:** Version bump only for package @jopau-react/hooks
