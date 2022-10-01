@@ -16,11 +16,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: 🔖 Release version
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: false
-          automatic_release_tag: ${{github.ref}}
+        uses: docker://antonyurchenko/git-release:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: 🔖 Release version
 #        uses: fregante/release-with-changelog@v3
 #        with:
