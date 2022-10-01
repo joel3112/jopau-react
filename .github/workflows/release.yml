@@ -13,12 +13,16 @@ jobs:
     steps:
       - name: ⬇️ Check out repository
         uses: actions/checkout@v3
-      - name: 🔖 Release version
-        id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-      - run: echo "The release was published with the id ${{ steps.create_release.outputs.id }} with url ${{ steps.create_release.outputs.html_url }}"
+          fetch-depth: 0
+      - name: 🔖 Release version
+        uses: fregante/release-with-changelog@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-template: '- {hash} {title}'
+          template: |
+            ### Changelog
+
+            {commits}
+
+            {range}
