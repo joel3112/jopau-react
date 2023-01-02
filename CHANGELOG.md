@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.0](https://github.com/joel3112/jopau-react/compare/v3.3.19...v3.4.0) (2023-01-02)
+
+
+### 🚀 New Features
+
+* publish esm and cjs ([a1f26dc](https://github.com/joel3112/jopau-react/commit/a1f26dcd236de6f74ec36f76bb6130d050dc736d))
+
+
+### 🐛 Bug Fixes
+
+* build declaration ([8f74a17](https://github.com/joel3112/jopau-react/commit/8f74a179e534de9d719b41d63acb2dff746526d0))
+* update pr workflow ([dccb189](https://github.com/joel3112/jopau-react/commit/dccb1892f85a3f759cd3207c942bc8edd0b1005c))
+
+
+
 ## [3.3.19](https://github.com/joel3112/jopau-react/compare/v3.3.18...v3.3.19) (2022-10-01)
 
 
