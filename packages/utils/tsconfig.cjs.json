@@ -2,12 +2,12 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "esnext",
+    "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
     "noEmit": false,
     "rootDir": "src",
-    "outDir": "dist/esm",
+    "outDir": "dist/cjs",
     "declarationDir": "dist/types",
     "types": ["node", "jest"],
     "baseUrl": "./"

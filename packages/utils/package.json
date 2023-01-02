@@ -4,15 +4,21 @@
   "description": "Common utils for React projects",
   "author": "Joel Paucarima Franco <jopau3112@gmail.com>",
   "license": "MIT",
-  "type": "module",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joel3112/jopau-react.git"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "test": "jest --config ../../jest.config.js",
     "prepublishOnly": "cp package.json dist/package.json && cp README.md dist/README.md"
   },
