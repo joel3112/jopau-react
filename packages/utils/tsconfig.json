@@ -8,7 +8,7 @@
     "noEmit": false,
     "rootDir": "src",
     "outDir": "dist/esm",
-    "declarationDir": "dist/types",
+    "declarationDir": "dist",
     "types": ["node", "jest"],
     "baseUrl": "./"
   },
