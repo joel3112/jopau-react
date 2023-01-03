@@ -10,23 +10,19 @@
   "module": "dist/esm/index.js",
   "typesVersions": {
     "*": {
-      "index": [
-        "./dist/index.d.ts"
-      ],
-      "breakpoint": [
-        "./dist/breakpoint.d.ts"
+      "*": [
+        "./dist/index.d.ts",
+        "./dist/*"
       ]
     }
   },
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
     "./breakpoint": {
-      "types": "./dist/breakpoint.d.ts",
       "import": "./dist/esm/breakpoint/index.js",
       "require": "./dist/cjs/breakpoint/index.js"
     }
