@@ -4,7 +4,7 @@ import {
   BreakpointsHelper,
   BreakpointsRules,
   createBreakpoints
-} from '@jopau-react/utils';
+} from '@jopau-react/utils/breakpoint';
 
 export type UseBreakpoint = {
   key: Breakpoint | null;
