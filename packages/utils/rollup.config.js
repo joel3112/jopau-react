@@ -42,5 +42,13 @@ export default [
       format: 'es',
       file: 'dist/types/index.d.ts'
     }
+  },
+  {
+    plugins: [dts()],
+    input: 'src/breakpoint/index.ts',
+    output: {
+      format: 'es',
+      file: 'dist/types/breakpoint.d.ts'
+    }
   }
 ];
