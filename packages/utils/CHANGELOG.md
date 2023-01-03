@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.0](https://github.com/joel3112/jopau-react/compare/v3.7.0...v3.8.0) (2023-01-03)
+
+
+### 🚀 New Features
+
+* fix import 3 ([28ede5c](https://github.com/joel3112/jopau-react/commit/28ede5cca69cafd7af3a810b8e6511307e483ce6))
+
+
+
 ## [3.7.0](https://github.com/joel3112/jopau-react/compare/v3.6.1...v3.7.0) (2023-01-03)
 
 
