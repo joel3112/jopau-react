@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/joel3112/jopau-react/compare/v3.6.0...v3.6.1) (2023-01-03)
+
+
+### 🐛 Bug Fixes
+
+* function export ([182dbf1](https://github.com/joel3112/jopau-react/commit/182dbf1e5df88b6d52da6e0ad8009c3e1e6d000a))
+
+
+
 ## [3.6.0](https://github.com/joel3112/jopau-react/compare/v3.5.0...v3.6.0) (2023-01-03)
 
 
