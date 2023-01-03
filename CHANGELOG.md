@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.0](https://github.com/joel3112/jopau-react/compare/v3.8.0...v3.9.0) (2023-01-03)
+
+
+### 🚀 New Features
+
+* exports types ([e002992](https://github.com/joel3112/jopau-react/commit/e002992e422de372049496dce7f56735d9551a46))
+
+
+
 ## [3.8.0](https://github.com/joel3112/jopau-react/compare/v3.7.0...v3.8.0) (2023-01-03)
 
 
