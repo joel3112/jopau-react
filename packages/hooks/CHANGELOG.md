@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.0](https://github.com/joel3112/jopau-react/compare/v3.4.0...v3.5.0) (2023-01-03)
+
+
+### 🚀 New Features
+
+* rollup build ([03a7feb](https://github.com/joel3112/jopau-react/commit/03a7febb103fe71b2b542cec00c9124c34bea002))
+
+
+
 ## [3.4.0](https://github.com/joel3112/jopau-react/compare/v3.3.19...v3.4.0) (2023-01-02)
 
 **Note:** Version bump only for package @jopau-react/hooks
