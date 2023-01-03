@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { TAny, TArray, TBasic, TObject } from '../index';
 import { compact } from '../array';
 

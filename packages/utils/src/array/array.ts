@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { TBasic } from '../index';
 
 export type TArray<T = TBasic> = ArrayLike<T>;

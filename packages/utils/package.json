@@ -8,7 +8,7 @@
   "sideEffects": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -43,7 +43,7 @@
     "access": "public"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
+    "lodash": "4.17.21",
     "luxon": "^3.0.3"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^10.0.1",
-    "@types/lodash": "^4.14.185",
+    "@types/lodash": "4.14.185",
     "@types/luxon": "^3.0.1",
     "babel-plugin-add-module-exports": "^1.0.4",
     "copyfiles": "^2.4.1",

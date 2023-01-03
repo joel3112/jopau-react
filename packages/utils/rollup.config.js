@@ -40,7 +40,7 @@ export default [
     input: 'src/index.ts',
     output: {
       format: 'es',
-      file: 'dist/types/index.d.ts'
+      file: 'dist/index.d.ts'
     }
   },
   {
@@ -48,7 +48,7 @@ export default [
     input: 'src/breakpoint/index.ts',
     output: {
       format: 'es',
-      file: 'dist/types/breakpoint.d.ts'
+      file: 'dist/breakpoint.d.ts'
     }
   }
 ];
