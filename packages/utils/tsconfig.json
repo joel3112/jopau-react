@@ -2,13 +2,11 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "esnext",
     "declaration": true,
     "sourceMap": true,
     "noEmit": false,
     "rootDir": "src",
-    "outDir": "dist/esm",
-    "declarationDir": "dist",
+    "outDir": "dist",
     "types": ["node", "jest"],
     "baseUrl": "./"
   },

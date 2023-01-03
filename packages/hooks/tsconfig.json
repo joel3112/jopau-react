@@ -9,9 +9,9 @@
     "types": ["node", "jest"],
     "baseUrl": "./",
     "paths": {
-      "@jopau-react/utils": ["../utils/dist"],
-      "@jopau-react/utils/*": ["../utils/dist/*"],
-      "@jopau-react/hooks/*": ["../hooks/src/*"]
+      "@jopau-react/utils": ["../utils/dist/types"],
+      "@jopau-react/utils/*": ["../utils/dist/types/*"],
+      "@jopau-react/hooks/*": ["../hooks/dist/types/*"]
     }
   },
   "include": ["src/**/*.ts"],
