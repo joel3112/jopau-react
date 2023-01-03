@@ -31,8 +31,7 @@
     "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
     "build": "rm -rf dist && rollup -c",
     "buildw": "rm -rf dist && yarn build:es && yarn build:cjs && yarn build:esm && yarn build:types",
-    "test": "jest --config ../../jest.config.js",
-    "prepublishOnly": "cp package.json dist/package.json && cp README.md dist/README.md"
+    "test": "jest --config ../../jest.config.js"
   },
   "files": [
     "dist",

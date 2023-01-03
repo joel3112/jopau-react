@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import babel from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import ts from 'rollup-plugin-ts';
-import { terser } from 'rollup-plugin-terser';
-import typescript from '@rollup/plugin-typescript';
+// import babel from '@rollup/plugin-babel';
+// import { nodeResolve } from '@rollup/plugin-node-resolve';
+// import ts from 'rollup-plugin-ts';
+// import { terser } from 'rollup-plugin-terser';
+// import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
-// import pkg from './package.json';
 
 const bundle = (config) => ({
   ...config,
